@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class BlockContainer extends Component {
+export class BlockWrapper extends Component {
     render() {
         return (
             <div className="block"

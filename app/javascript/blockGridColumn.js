@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BlockContainer } from './blockContainer';
+import { BlockWrapper } from './blockWrapper';
 
 export class BlockGridColumn extends Component {
     constructor(props) {
@@ -7,9 +7,12 @@ export class BlockGridColumn extends Component {
     }
 
     render() {
-        let blocks = this.props.col.map(block =>
-            <BlockContainer key={block.y} meta={block} onBlockClicked={(block) => this.props.onBlockClicked(block)}/>
-        );
+        let blocks = []
+        for(let i=this.props.col.length-1; i >= 0; i--) {
+            let block = this.props.col[i];
+            let blockWrapper = <BlockWrapper key={`${block.x}${block.y}`} meta={block} onBlockClicked={(block) => this.props.onBlockClicked(block)}/>
+            blocks.push(blockWrapper);
+        }
         return (
             <div className="col">
                 {blocks}
