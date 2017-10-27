@@ -3,8 +3,8 @@ import { GridManager } from './gridManager';
 import { Block } from './block';
 import { BlockGridColumn } from './blockGridColumn';
 
-const MAX_X = 3;
-const MAX_Y = 5;
+const MAX_X = 10;
+const MAX_Y = 10;
 
 export class BlockGridContainer extends Component {
     constructor (props) {
