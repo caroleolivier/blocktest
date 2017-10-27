@@ -8,7 +8,7 @@ Please find below a couple of notes.
 
 ### How I spent my time
 
-I spent 4 hours on the test and then play with it for about 20/30 minutes (I was over 4 hours when I wrote this note and committed the last 2 commits).
+I spent 4 hours on the test and then played with it for about 20/30 minutes (I was over 4 hours when I wrote this note and committed the last 3 commits).
 
 **3 hours**
 
