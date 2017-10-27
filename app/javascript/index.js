@@ -1,4 +1,3 @@
-import { BlockGrid } from './grid';
-console.log(BlockGrid);
+import { BlockGridView } from './grid';
 
-((w) => w.addEventListener('DOMContentLoaded', () => new BlockGrid().render()))(window)
+((w) => w.addEventListener('DOMContentLoaded', () => new BlockGridView().render()))(window)

@@ -1,29 +1,21 @@
-export const COLOURS = ['red', 'green', 'blue', 'yellow'];
-const MAX_X = 10;
-const MAX_Y = 10;
+import { BlockGrid } from './blockGrid';
+import { Block } from './block';
 
-export class Block {
-    constructor (x, y) {
-        this.x = x;
-        this.y = y;
-        this.colour = COLOURS[Math.floor(Math.random() * COLOURS.length)];
-    }
-}
+const MAX_X = 3;
+const MAX_Y = 5;
 
-export class BlockGrid {
+export class BlockGridView {
     constructor () {
-        this.grid = [];
-
+        const grid = []
         for (let x = 0; x < MAX_X; x++) {
             let col = [];
             for (let y = 0; y < MAX_Y; y++) {
                 col.push(new Block(x, y));
             }
 
-            this.grid.push(col);
+            grid.push(col);
         }
-
-        return this;
+        this.blockGrid = new BlockGrid(MAX_X, MAX_Y, grid);
     }
 
     render (el = document.querySelector('#gridEl')) {
@@ -35,7 +27,7 @@ export class BlockGrid {
             el.appendChild(colEl);
 
             for (let y = MAX_Y - 1; y >= 0; y--) {
-                let block = this.grid[x][y],
+                let block = this.blockGrid.grid[x][y],
                     id = `block_${x}x${y}`,
                     blockEl = document.createElement('div');
 
@@ -52,5 +44,13 @@ export class BlockGrid {
 
     blockClicked (e, block) {
         console.log(e, block);
+        this.blockGrid.removeFrom(block);
+        this._clearContent();
+        this.render();
+    }
+
+    _clearContent() {
+        let el = document.querySelector('#gridEl');
+        el.innerHTML = '';
     }
 }
