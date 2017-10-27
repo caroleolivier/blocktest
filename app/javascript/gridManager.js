@@ -1,6 +1,6 @@
 import { Block } from './block';
 
-export class BlockGrid {
+export class GridManager {
     constructor (maxX, maxY, grid) {
         this.maxX = maxX;
         this.maxY = maxY;
@@ -11,6 +11,7 @@ export class BlockGrid {
         console.log(block);
         this._remove(block);
         this._rearrangeGrid();
+        return this.grid;
     }
 
     _remove(block) {

@@ -1,8 +1,8 @@
-import { BlockGrid } from '../app/javascript/blockGrid';
+import { GridManager } from '../app/javascript/gridManager';
 import { Block } from '../app/javascript/block';
 import { assert, expect } from 'chai';
 
-describe('BlockGrid', () => {
+describe('GridManager', () => {
     const maxX = 4;
     const maxY = 3;
     /*
@@ -16,16 +16,16 @@ describe('BlockGrid', () => {
         [ new Block(2, 0, '#'), new Block(2, 1, '#'), new Block(2, 2, '$')],
         [ new Block(3, 0, '$'), new Block(3, 1, '#'), new Block(3, 2, '$')],
     ]
-    let blockGrid = new BlockGrid(maxX, maxY, grid);
+    let gridManager = new GridManager(maxX, maxY, grid);
 
     it('should be initialised correctly', () => {
-        assert.equal(blockGrid.maxX, maxX);
-        assert.equal(blockGrid.maxY, maxY);
-        assert.equal(blockGrid.grid, grid);
+        assert.equal(gridManager.maxX, maxX);
+        assert.equal(gridManager.maxY, maxY);
+        assert.equal(gridManager.grid, grid);
     });
 
     it('removes the correct blocks', () => {
-        blockGrid.removeFrom(grid[2][1]);
+        gridManager.removeFrom(grid[2][1]);
         /*
             # - - -
             # $ - $
@@ -37,6 +37,6 @@ describe('BlockGrid', () => {
             [ new Block(2, 0, '$'), new Block(2, 1, 'black'), new Block(2, 2, 'black')],
             [ new Block(3, 0, '$'), new Block(3, 1, '$'), new Block(3, 2, 'black')],
         ]
-        expect(blockGrid.grid).to.deep.equal(expectedGrid);
+        expect(gridManager.grid).to.deep.equal(expectedGrid);
     });
 });
