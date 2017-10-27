@@ -33,18 +33,15 @@ export class BlockGrid {
     _rearrangeColumnAt(x) {
         const column = this.grid[x];
         let shift = 0;
+
         for (let y = 0; y < this.maxY; y++) {
             let block = column[y];
             if(this._isRemoved(block)) {
+                column[y] = new Block(x, y, 'black');
                 shift++;
             }
             else if(shift > 0) {
                 column[y-shift] = new Block(x, y-shift, column[y].colour);
-                column[y] = new Block(x, y, 'black');
-            }
-        }
-        if(shift > 0) {
-            for (let y = this.maxY-1; y >= this.maxY-shift; y--) {
                 column[y] = new Block(x, y, 'black');
             }
         }
