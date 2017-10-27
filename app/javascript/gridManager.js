@@ -7,8 +7,7 @@ export class GridManager {
         this.grid = grid;
     }
 
-    removeFrom(block) {
-        console.log(block);
+    remove(block) {
         this._remove(block);
         this._rearrangeGrid();
         return this.grid;
@@ -38,12 +37,12 @@ export class GridManager {
         for (let y = 0; y < this.maxY; y++) {
             let block = column[y];
             if(this._isRemoved(block)) {
-                column[y] = new Block(x, y, 'black');
+                column[y] = new Block(x, y, 'transparent');
                 shift++;
             }
             else if(shift > 0) {
                 column[y-shift] = new Block(x, y-shift, column[y].colour);
-                column[y] = new Block(x, y, 'black');
+                column[y] = new Block(x, y, 'transparent');
             }
         }
     }

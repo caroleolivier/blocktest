@@ -4,9 +4,9 @@ export class BlockWrapper extends Component {
     render() {
         return (
             <div className="block"
-                 style={{ backgroundColor: this.props.meta.colour}}
-                 onClick={() => this.props.onBlockClicked(this.props.meta)}
-                 title={`${this.props.meta.x}, ${this.props.meta.y}`}
+                 style={{ backgroundColor: this.props.block.colour}}
+                 onClick={() => this.props.onBlockClicked(this.props.block)}
+                 title={`${this.props.block.x}, ${this.props.block.y}`}
             >
             </div>
         )

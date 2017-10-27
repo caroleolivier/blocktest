@@ -25,7 +25,7 @@ describe('GridManager', () => {
     });
 
     it('removes the correct blocks', () => {
-        gridManager.removeFrom(grid[2][1]);
+        gridManager.remove(grid[2][1]);
         /*
             # - - -
             # $ - $
@@ -33,9 +33,9 @@ describe('GridManager', () => {
         */
         const expectedGrid = [
             [ new Block(0, 0, '$'), new Block(0, 1, '#'), new Block(0, 2, '#')],
-            [ new Block(1, 0, '$'), new Block(1, 1, '$'), new Block(1, 2, 'black')],
-            [ new Block(2, 0, '$'), new Block(2, 1, 'black'), new Block(2, 2, 'black')],
-            [ new Block(3, 0, '$'), new Block(3, 1, '$'), new Block(3, 2, 'black')],
+            [ new Block(1, 0, '$'), new Block(1, 1, '$'), new Block(1, 2, 'transparent')],
+            [ new Block(2, 0, '$'), new Block(2, 1, 'transparent'), new Block(2, 2, 'transparent')],
+            [ new Block(3, 0, '$'), new Block(3, 1, '$'), new Block(3, 2, 'transparent')],
         ]
         expect(gridManager.grid).to.deep.equal(expectedGrid);
     });

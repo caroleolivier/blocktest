@@ -37,7 +37,7 @@ export class BlockGridContainer extends Component {
 
     blockClicked (block) {
         console.log(block);
-        const newGrid = this.gridManager.removeFrom(block)
-        this.setState({ grid: newGrid });
+        const updatedGrid = this.gridManager.remove(block)
+        this.setState({ grid: updatedGrid });
     }
 }
